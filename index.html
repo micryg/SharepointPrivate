@@ -38,13 +38,22 @@
       right: 0;
       width: 100%;
       height: 4px;
-      background: #4caf50;
+      background: #ddd; /* domyślnie szare */
       z-index: -1;
     }
+    
+    /* Tylko kroki oznaczone jako ukończone mają zielone paski */
+    .step.completed:not(:last-child)::after {
+      background: #4caf50;
+    }
+    
+    /* Styl zielonego kroku */
     .step.completed::before {
       background: #4caf50;
       color: white;
     }
+    
+    /* Styl aktywnego (obecnego) kroku */
     .step.active::before {
       background: #2196f3;
       color: white;
