@@ -10,33 +10,38 @@
       padding: 40px;
     }
 
-    .progress-wrapper {
+    .progress-container {
       position: relative;
-      height: 60px;
-      margin-bottom: 40px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 40px auto;
     }
 
-    .progress-bar {
+    /* Tło paska */
+    .progress-line-bg {
       position: absolute;
-      top: 28px;
+      top: 20px;
       left: 0;
       right: 0;
-      height: 4px;
+      height: 6px;
       background-color: #ddd;
       z-index: 1;
+      border-radius: 3px;
     }
 
-    .progress-fill {
+    /* Pasek zielony (do kroku 3) */
+    .progress-line-fill {
       position: absolute;
-      top: 28px;
+      top: 20px;
       left: 0;
-      height: 4px;
+      height: 6px;
       background-color: #4caf50;
       z-index: 2;
-      width: 50%; /* 3/6 = 50% (do 3. punktu z 7) */
+      width: calc(100% / 6 * 3); /* 3 z 6 odcinków = do punktu 3 */
+      border-radius: 3px;
     }
 
-    .progress-steps {
+    .steps {
       display: flex;
       justify-content: space-between;
       position: relative;
@@ -52,14 +57,15 @@
     .step::before {
       content: attr(data-step);
       display: inline-block;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
       border-radius: 50%;
       background-color: #ddd;
       color: #000;
       font-weight: bold;
       margin-bottom: 8px;
+      z-index: 4;
     }
 
     .step.completed::before {
@@ -75,7 +81,7 @@
     .label {
       font-size: 12px;
       max-width: 80px;
-      margin: 0 auto;
+      margin: 6px auto 0;
     }
   </style>
 </head>
