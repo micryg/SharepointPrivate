@@ -2,49 +2,51 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Projektphasen</title>
+  <title>Projektfortschritt</title>
   <style>
     body {
       font-family: sans-serif;
-      padding: 40px;
       background: #f9f9f9;
+      padding: 40px;
     }
 
-    .progress-container {
-      display: flex;
-      justify-content: space-between;
+    .progress-wrapper {
       position: relative;
-      margin: 60px 0;
+      height: 60px;
+      margin-bottom: 40px;
     }
 
-    /* Szara linia w tle */
-    .progress-container::before {
-      content: '';
+    .progress-bar {
       position: absolute;
-      top: 20px;
+      top: 28px;
       left: 0;
       right: 0;
       height: 4px;
-      background: #ddd;
-      z-index: 0;
+      background-color: #ddd;
+      z-index: 1;
     }
 
-    /* Zielona linia wypełniająca postęp */
-    .progress-bar-fill {
+    .progress-fill {
       position: absolute;
-      top: 20px;
+      top: 28px;
       left: 0;
       height: 4px;
-      background: #4caf50;
-      z-index: 1;
-      width: calc(100% / 6 * 3); /* bo 3 odcinki = do punktu 3 */
+      background-color: #4caf50;
+      z-index: 2;
+      width: 50%; /* 3/6 = 50% (do 3. punktu z 7) */
+    }
+
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      z-index: 3;
     }
 
     .step {
-      position: relative;
-      z-index: 2;
       text-align: center;
       flex: 1;
+      position: relative;
     }
 
     .step::before {
@@ -54,19 +56,19 @@
       height: 40px;
       line-height: 40px;
       border-radius: 50%;
-      background: #ddd;
+      background-color: #ddd;
       color: #000;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .step.completed::before {
-      background: #4caf50;
+      background-color: #4caf50;
       color: white;
     }
 
     .step.active::before {
-      background: #2196f3;
+      background-color: #2196f3;
       color: white;
     }
 
